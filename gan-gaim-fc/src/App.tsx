@@ -1,0 +1,50 @@
+import React, {useState} from 'react';
+import './todo.css';
+import playersJson from './playersJson';
+import Player from './components/Player';
+import PlayerList from './components/PlayerList';
+import  store from './playersService'
+import { inject, observer } from 'mobx-react';
+import NewPlayer from './NewPlayer';
+
+
+const UnMatchPlayers = inject('playerList')(
+   //@ts-ignore
+  observer(({playerList})=>{
+    return <PlayerList title ="All Players" players={playerList.unMatchPlayers}/> 
+  }),
+);  
+
+const MatchPlayers = inject('playerList')(
+  //@ts-ignore
+ observer(({playerList})=>{
+   return <PlayerList title ="Match Players" players={playerList.matchPlayers}/> 
+ }),
+);  
+
+const App = ()=>{  
+
+  return (
+    <div className="container">
+      <NewPlayer/>
+      <UnMatchPlayers/>
+      <MatchPlayers/>      
+    </div>
+  )
+
+}
+// function App() {
+//    const [matchPlayerList, setMachPlayerList] = useState([]);
+//    const [playersList, setPlayersList] = useState(playersJson);
+
+//   return (
+//     <div>>     
+      
+//         <PlayerList store={store}/>
+//     </div>
+//   );
+// }
+
+
+export default App;
+
