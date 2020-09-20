@@ -7,14 +7,16 @@ import {computed} from "mobx";
 
 @observer
 class PlayerList extends Component<any> {
- 
+
     render() {  
         const  {title , players} =  this.props;
 
         return (
             <div>
-                <h3>{title}</h3>
-                {players.map((player) => <Player key={player.id} player={player}/>)}
+                <h3>{title} {players.length} </h3> 
+                {players.map((player, index) => {
+                    return <Player key={player.id} player={player} index={index+1}/>
+                })}
             </div>
         )
     }

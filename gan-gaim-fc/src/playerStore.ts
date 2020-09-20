@@ -1,4 +1,4 @@
-import {observable, computed, action, values} from 'mobx'
+import {observable, computed, action, autorun, values, reaction} from 'mobx'
 import {IPlayer} from './playerModel'
 import Player from './playerModel';
 
@@ -8,12 +8,43 @@ export default class PlayerList{
     @observable players: Array<IPlayer> = [];
     @observable unMatchPlayersFilter = ''
     @observable macthPlayrsFilter = '';
+    firstRun = true
     //todo understand the unMatchPlayers and  filterUnMatchList and updateUnMacthPlayrsFilter
 
     constructor(playerList=[]){
+        debugger;
+        let playerFromLocalstorage = localStorage.getItem('matchPlayerList');
+        if(playerFromLocalstorage?.length > 0){
+            this.updateFromLocalStorage();
+        }else{
+            this._initPlayerJson(playerList);
+        }
+        this.firstRun = false;
+    }
+
+    private _initPlayerJson(playerList){
         playerList.map(player =>{
             const {value} = player;
              this.addPlayer(value)});
+    }
+
+     disposer = autorun(() => {
+        debugger;
+        //todo make auto run on every changae length and inMatchPlater
+        //toto save the player list in localSortage
+        //todo add reset game button
+        //upload to server?
+
+     
+        console.log('omer',this.players.length);
+
+    })
+ 
+
+    @action.bound
+    updateFromLocalStorage(){
+        //@ts-ignore
+        //this.players = JSON.parse(localStorage.getItem('matchPlayerList'));
     }
 
     @computed get matchPlayers(){

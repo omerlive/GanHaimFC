@@ -33,18 +33,7 @@ const App = ()=>{
   )
 
 }
-// function App() {
-//    const [matchPlayerList, setMachPlayerList] = useState([]);
-//    const [playersList, setPlayersList] = useState(playersJson);
-
-//   return (
-//     <div>>     
-      
-//         <PlayerList store={store}/>
-//     </div>
-//   );
-// }
-
+//toto add to localstorage
 
 export default App;
 

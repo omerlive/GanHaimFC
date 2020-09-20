@@ -5,11 +5,12 @@ import { Interface } from 'readline';
 export interface IPlayer {
     id: number;
     value: string;
-    attendMatch: boolean
+    attendMatch: boolean,
+    level: number
 }
 
 export default class Player{
-    private id = (new Date()).getTime();
+    private id = Math.random() *  Math.random();
     //@ts-ignore
     private list;
 

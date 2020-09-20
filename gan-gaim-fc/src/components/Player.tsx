@@ -3,10 +3,12 @@ import { constants } from 'buffer';
 import  playersService from './../playersService'
 
 
-const Player =  ({player}) => {
+const Player =  ({player , index}) => {
 
     return(
+        
         <article className="single-player">
+            {index}.
             <label htmlFor={player.id}>
                 <input type="checkbox"
                 checked={player.attendMatch}
