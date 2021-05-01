@@ -6,13 +6,12 @@ import Player from './playerModel';
 
 export default class PlayerList{
     @observable players: Array<IPlayer> = [];
-    @observable unMatchPlayersFilter = ''
+    @observable unMatchPlayersFilter = 'start';
     @observable macthPlayrsFilter = '';
     firstRun = true
     //todo understand the unMatchPlayers and  filterUnMatchList and updateUnMacthPlayrsFilter
 
     constructor(playerList=[]){
-        debugger;
         let playerFromLocalstorage = localStorage.getItem('matchPlayerList');
         if(playerFromLocalstorage?.length > 0){
             this.updateFromLocalStorage();
@@ -29,17 +28,15 @@ export default class PlayerList{
     }
 
      disposer = autorun(() => {
-        debugger;
+        
         //todo make auto run on every changae length and inMatchPlater
         //toto save the player list in localSortage
         //todo add reset game button
         //upload to server?
-
      
-        console.log('omer',this.players.length);
+        // console.log('omer',this.unMatchPlayersFilter);
 
     })
- 
 
     @action.bound
     updateFromLocalStorage(){
@@ -65,8 +62,9 @@ export default class PlayerList{
 
     //todo why
     @computed get filterUnMatchList(){
-        //@ts-ignore
-          return this.unMatchPlayers.filter(player => player.value.includes(this.unMatchPlayersFilter));
+        debugger;   
+        //@ts-ignore 
+        return this.players.filter(player => player.value.includes(this.unMatchPlayersFilter));
     }
     
      @action.bound

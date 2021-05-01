@@ -13,7 +13,6 @@ export default class Player{
     private id = Math.random() *  Math.random();
     //@ts-ignore
     private list;
-
     @observable value = ''
     @observable attendMatch = false;
 

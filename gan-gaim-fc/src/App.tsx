@@ -27,6 +27,7 @@ const App = ()=>{
   return (
     <div className="container">
       <NewPlayer/>
+      
       <UnMatchPlayers/>
       <MatchPlayers/>      
     </div>

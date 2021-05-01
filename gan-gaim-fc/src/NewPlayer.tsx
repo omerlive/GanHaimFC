@@ -40,6 +40,7 @@ export default class NewPlayer extends Component{
                     />
                     <input type="submit" />
                 </form>           
+                
             </div>
         )
     }

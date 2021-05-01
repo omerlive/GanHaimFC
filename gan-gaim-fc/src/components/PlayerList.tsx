@@ -2,18 +2,26 @@ import React ,{Component} from 'react';
 import Player from './Player';
 import PlayersService from '../playersService';
 import ReactDOM from "react-dom"
-import { observer } from "mobx-react";
-import {computed} from "mobx";
+import { observer, inject } from "mobx-react";
+import {computed } from "mobx";
 
-@observer
+@inject('playerList')
 class PlayerList extends Component<any> {
+    
+    handleFilterChange = (e)=>{
+        const { playerList } =  this.props;
+        playerList.updateUnMacthPlayrsFilter(e.target.value);
+    }
 
     render() {  
-        const  {title , players} =  this.props;
+        const  {title , players, playerList} =  this.props;
 
         return (
             <div>
                 <h3>{title} {players.length} </h3> 
+                <input onKeyUp={this.handleFilterChange}/>
+                {playerList.unMatchPlayersFilter}
+                {playerList.filterUnMatchList.length}
                 {players.map((player, index) => {
                     return <Player key={player.id} player={player} index={index+1}/>
                 })}
