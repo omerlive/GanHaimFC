@@ -2,6 +2,7 @@ import {observable, computed, action, values} from 'mobx'
 import { Interface } from 'readline';
 
 
+
 export interface IPlayer {
     id: number;
     value: string;

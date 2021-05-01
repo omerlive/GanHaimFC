@@ -8,14 +8,14 @@ import { inject, observer } from 'mobx-react';
 import NewPlayer from './NewPlayer';
 
 // inbar+omer=blff
-//fix test 
+
 const UnMatchPlayers = inject('playerList')(
    //@ts-ignore
   observer(({playerList})=>{
     return <PlayerList title ="All Players" players={playerList.unMatchPlayers}/> 
   }),
 );  
-
+//omer and inbar test
 const MatchPlayers = inject('playerList')(
   //@ts-ignore
  observer(({playerList})=>{

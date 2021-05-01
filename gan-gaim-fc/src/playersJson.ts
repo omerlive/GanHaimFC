@@ -1,7 +1,7 @@
 import { IPlayer } from "./playerModel"
 
 // hello world
-
+//inbar 1
  let playersJson:Array<IPlayer> = [
       {
         id:1,
