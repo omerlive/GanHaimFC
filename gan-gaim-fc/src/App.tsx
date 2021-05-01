@@ -8,7 +8,7 @@ import { inject, observer } from 'mobx-react';
 import NewPlayer from './NewPlayer';
 
 // inbar+omer=blff
-
+//fix test 
 const UnMatchPlayers = inject('playerList')(
    //@ts-ignore
   observer(({playerList})=>{
