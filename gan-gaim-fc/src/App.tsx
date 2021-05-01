@@ -7,6 +7,7 @@ import  store from './playersService'
 import { inject, observer } from 'mobx-react';
 import NewPlayer from './NewPlayer';
 
+// inbar+omer=blff
 
 const UnMatchPlayers = inject('playerList')(
    //@ts-ignore
@@ -14,7 +15,7 @@ const UnMatchPlayers = inject('playerList')(
     return <PlayerList title ="All Players" players={playerList.unMatchPlayers}/> 
   }),
 );  
-//omer and inbar test
+
 const MatchPlayers = inject('playerList')(
   //@ts-ignore
  observer(({playerList})=>{
